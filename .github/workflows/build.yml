@@ -10,7 +10,7 @@ jobs:
   build:
     strategy:
       matrix:
-        branch: ['linux-msft-wsl-5.15.y']
+        branch: ['linux-msft-wsl-6.6.y']
     runs-on: ubuntu-latest
     steps:
 
@@ -34,7 +34,7 @@ jobs:
       run: cp Microsoft/config-wsl ./.config
 
     - name: Apply USB Config # for 5.4. branch only
-      if: ${{ matrix.branch == 'linux-msft-wsl-5.4.y' }}
+      if: ${{ matrix.branch == 'linux-msft-wsl-6.6.y' }}
       working-directory: ./kernel-${{ matrix.branch }}
       run: scripts/kconfig/merge_config.sh -m -y .config ../usb.config
 
